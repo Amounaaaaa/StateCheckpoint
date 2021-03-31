@@ -65,7 +65,7 @@ class AppClass extends Component {
 </div>  :null}    
     
       <button style={{ margin:'9px 91px 3px', textShadow: '2px 2px 5px red'}} class="btn btn-danger" onClick={this.showProfile} >Show profile</button>
-      <p>{this.state.count}</p>
+      <p style={{ margin:'9px 135px 3px', textShadow: '2px 2px 5px red'}} >{this.state.count}</p>
       </Card.Body>
     </Accordion.Collapse>
   </Card>
