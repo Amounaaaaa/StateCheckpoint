@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import IntervalExample from './IntervalExample'
 import {Navbar,Nav,FormControl,Button,Accordion,Card,Col,Image} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form'
 import './App.css'
