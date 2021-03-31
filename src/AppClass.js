@@ -8,13 +8,25 @@ class AppClass extends Component {
  constructor(props){
        super(props)
        this.state={
-         fullName:"Houimli Imen",
-         bio:"Bio",
-         imgSrc:"imageProfile.jpeg",
-         profession:"Student",
-         show:false
-       }
+          Person:{
+            fullName:"Houimli Imen",
+            bio:"Bio",
+            imgSrc:"imageProfile.jpeg",
+            profession:"Student", 
+         },
+          show:false,
+          count:0,
+        
  }
+ }
+ componentDidMount(){
+  const interval = setInterval(() => {
+    this.setState({count:this.state.count+1})
+  }, 1000);
+  return () => clearInterval(interval);
+}
+ 
+
   showProfile=()=>{
     this.setState({show:!this.state.show})
 
@@ -43,18 +55,18 @@ class AppClass extends Component {
       <Card.Body className="cardBody">  
 {     this.state.show ?  
       <div> 
-      <h2 style={{ margin: '9px 60px 3px', textShadow: '2px 2px 5px red'}}>{this.state.fullName}</h2> 
-      <h2 style={{ margin: '9px 60px 3px', textShadow: '2px 2px 5px red'}}>{this.state.bio}</h2> 
-      <h2 style={{ margin: '9px 60px 3px', textShadow: '2px 2px 5px red'}}>{this.state.profession}</h2> 
+      <h2 style={{ margin: '9px 60px 3px', textShadow: '2px 2px 5px red'}}>{this.state.Person.fullName}</h2> 
+      <h2 style={{ margin: '9px 60px 3px', textShadow: '2px 2px 5px red'}}>{this.state.Person.bio}</h2> 
+      <h2 style={{ margin: '9px 60px 3px', textShadow: '2px 2px 5px red'}}>{this.state.Person.profession}</h2> 
 
       <Col xs={2} md={2}></Col>
-      <Image style={{    height: '348px', width: '302px'}}  src={this.state.imgSrc }roundedCircle />
+      <Image style={{    height: '348px', width: '302px'}}  src={this.state.Person.imgSrc }roundedCircle />
 
    
 </div>  :null}    
     
       <button style={{ margin:'9px 91px 3px', textShadow: '2px 2px 5px red'}} class="btn btn-danger" onClick={this.showProfile} >Show profile</button>
-      <IntervalExample></IntervalExample>
+      <p>{this.state.count}</p>
       </Card.Body>
     </Accordion.Collapse>
   </Card>
